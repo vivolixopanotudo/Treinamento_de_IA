@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#102a43" />
+  <title>Visão IA — Classificador de imagens</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header><span class="eyebrow">PROJETO EDUCACIONAL · VISÃO COMPUTACIONAL</span><h1>Visão IA</h1><p>Classifique uma imagem usando um modelo treinado no Google Colab.</p></header>
+    <section class="panel">
+      <p id="status" role="status" aria-live="polite">Carregando modelo…</p>
+      <div class="actions">
+        <label class="button primary" for="gallery">Escolher imagem</label>
+        <input id="gallery" type="file" accept="image/*" hidden />
+        <label class="button" for="photo">Tirar foto (celular)</label>
+        <input id="photo" type="file" accept="image/*" capture="environment" hidden />
+        <button type="button" id="startCamera">Abrir câmera ao vivo</button>
+        <button type="button" id="takePhoto" disabled>Capturar da câmera</button>
+        <button type="button" id="stopCamera" disabled>Fechar câmera</button>
+      </div>
+      <div class="preview"><video id="video" autoplay playsinline muted hidden></video><img id="previewImage" alt="Imagem selecionada" hidden /><span id="placeholder">Sua imagem aparecerá aqui.</span></div>
+      <canvas id="captureCanvas" hidden></canvas>
+      <button type="button" id="classify" class="primary classify" disabled>Classificar imagem</button>
+    </section>
+    <section class="panel" aria-live="polite"><h2>Resultado</h2><p id="result">Selecione ou capture uma imagem para começar.</p><div id="scores"></div><p class="footnote">As pontuações representam as saídas do modelo, não garantias de acerto. As imagens são analisadas no próprio navegador.</p></section>
+  </main>
+</body>
+</html>
